@@ -1,0 +1,2 @@
+# AccountingApp
+With .Net Core
