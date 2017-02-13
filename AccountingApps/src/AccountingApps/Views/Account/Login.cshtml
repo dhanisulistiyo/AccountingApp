@@ -1,0 +1,76 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="~/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="~/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="~/favicon-16x16.png" sizes="16x16" />
+    <meta name="application-name" content="&nbsp;" />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+    <title>TAS System | Log in</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
+        <link rel="stylesheet" href="~/css/animate.css" />
+        <link rel="stylesheet" href="~/css/style.css" />
+        <link rel="stylesheet" href="~/lib/alte/Custom.css" />
+    </environment>
+
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/animate.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/lib/alte/Custom.css" asp-append-version="true"/>
+    </environment>
+</head>
+<body class="hold-transition login-page login-bg1">
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="container">
+            <div class="row" id="pwd-container">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <section class="login-form">
+                        @*<form method="post" action="#" role="login">*@
+                        <img src="~/Content/img/Nestle_logo_black.png" class="img-responsive" alt="Nestle Logo" />
+                        @*@Html.TextBoxFor(m => m.UserName, new { @class = "form-control input-lg", @placeholder = "Username" })
+                        @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control input-lg", @placeholder = "Password" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })*@
+                        <div class="pwstrength_viewport_progress"></div>
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                        <div class="form-linkx" style="text-align:center">
+                            @Html.ActionLink("Forgot Password", "AskLost", "Account")
+                        </div>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-links">
+                            <a>Accounting Application System</a>
+                            <br />
+                            <a>Copryright © 2017</a>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    }
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/lib/metisMenu/jquery.metisMenu.js"></script>
+        <script src="~/js/inspinia.js" asp-append-version="true"></script>
+    </environment>
+</body>
+</html>
